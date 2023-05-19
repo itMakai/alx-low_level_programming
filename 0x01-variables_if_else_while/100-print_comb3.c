@@ -1,0 +1,32 @@
+#include <stdio.h>
+
+/**
+ *main - entry point
+ *
+ *Return: always 0 (success)
+ */
+
+int main(void)
+{
+	int n = 0;
+
+	while (1)
+	{
+		putchar(n / 10 + '0');
+		putchar(n % 10 + '0');
+
+		if (n != 99)
+		{
+			putchar(',');
+		}
+		else
+		{
+			break;
+		}
+		n++;
+	}
+
+	putchar('\n');
+
+	return (0);
+}
