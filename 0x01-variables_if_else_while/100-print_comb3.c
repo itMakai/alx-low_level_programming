@@ -18,6 +18,7 @@ int main(void)
 		if (n != 89)
 		{
 			putchar(',');
+			putchar(' ');
 		}
 		else
 		{
