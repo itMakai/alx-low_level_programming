@@ -10,7 +10,7 @@ int main(void)
 {
 	int n = 0;
 
-	while (1)
+	while (10)
 	{
 		putchar(n / 10 + '0');
 		putchar(n % 10 + '0');
