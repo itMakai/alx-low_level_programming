@@ -8,16 +8,15 @@ int main(void)
 	int n;
 	int m;
 
-	while (n = 48 && n <= 57)
+	for (n = 48; n <= 57; n++)
 	{
 		putchar(n);
-		n++;
 	}
-	while (m = 97 && m <= 102)
+	for (m = 97; m <= 102; m++)
 	{
 		putchar(m);
-		m++;
 	}
 	putchar('\n');
 	return (0);
 }
+
