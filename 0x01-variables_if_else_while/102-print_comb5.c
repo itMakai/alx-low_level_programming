@@ -1,33 +1,29 @@
 #include <stdio.h>
-
 /**
- *main - prints all possible combinations of double-digit numbers
+ * main - entry block
  *
- *Return: 0
- */
-
+ * Return: 0
+ **/
 int main(void)
 {
-	int num = 0;
+	int i, j;
 
-	while (1)
+	for (i = 0; i < 100; i++)
 	{
-		putchar(num / 10 + '0');
-		putchar(num % 10 + '0');
-
-		if (num != 99)
+		for (j = i + 1; j < 100; j++)
 		{
-			putchar(',');
+			putchar(i / 10 + '0');
+			putchar(i % 10 + '0');
 			putchar(' ');
+			putchar(j / 10 + '0');
+			putchar(j % 10 + '0');
+			if (i != 98 || j != 99)
+			{
+				putchar(',');
+				putchar(' ');
+			}
 		}
-		else
-		{
-			break;
-		}
-		num++;
 	}
-
 	putchar('\n');
-
 	return (0);
 }
