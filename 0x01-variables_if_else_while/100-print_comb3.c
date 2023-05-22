@@ -1,33 +1,26 @@
 #include <stdio.h>
-
 /**
- *main - entry point
+ * main - entry block
  *
- *Return: always 0 (success)
- */
-
+ * Return: 0
+ **/
 int main(void)
 {
-	int n = 0;
+	int i, j;
 
-	while (10)
+	for (i = '0'; i <= '9'; i++)
 	{
-		putchar(n / 10 + '0');
-		putchar(n % 10 + '0');
-
-		if (n != 89)
+		for (j = i + 1; j <= '9'; j++)
 		{
-			putchar(',');
-			putchar(' ');
+			putchar(i);
+			putchar(j);
+			if (i != '8' || j != '9')
+			{
+				putchar(',');
+				putchar(' ');
+			}
 		}
-		else
-		{
-			break;
-		}
-		n++;
 	}
-
 	putchar('\n');
-
 	return (0);
 }
