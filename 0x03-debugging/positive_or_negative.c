@@ -1,3 +1,7 @@
+/**
+ *positive_or_negative - prints positive if i is greater than 0
+ *i - 0
+ */
 #include "main.h"
 void positive_or_negative(int i)
 {
