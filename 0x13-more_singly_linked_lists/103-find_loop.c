@@ -1,39 +1,38 @@
 #include "lists.h"
+#include <stdio.h>
 /**
- * free_listint_safe - thsi function free a list in safe mode
- * @h: the head of list
- * Description: this function free a string in a safe mode
- * section header: the header of this function is lists.h)*
- * Return: the size of the list
+ * find_listint_loop - find the loop in a linked list
+ * @head: head of linked list
+ * Description: Not allowed to use malloc, free or arrays.
+ * Can only declare a max of 2 variables.
+ * Return: Address of node where loop starts, or NULL if no loop found.
  */
-size_t free_listint_safe(listint_t **h)
+listint_t *find_listint_loop(listint_t *head)
 {
-	listint_t *tmp, *actual;
-	size_t i;
-	int rest;
+	listint_t *currents, *currentf;
 
-	i = 0, actual = *h;
+	if (head == NULL)
+		return (NULL);
 
-	while (actual)
+	currents = currentf = head;
+	do {
+		if (currents->next)
+			currents = currents->next;
+		else
+			return (NULL);
+
+		if (currentf->next->next)
+			currentf = currentf->next->next;
+		else
+			return (NULL);
+	} while (currentf != currents);
+
+	currents = head;
+	while (currentf != currents)
 	{
-		rest = actual - actual->next;
-		if (rest > 0)
-		{
-			tmp = actual->next;
-			free(actual);
-			actual = tmp;
-			i++;
-		} else
-		{
-			free(actual);
-			*h = NULL;
-			i++;
-			break;
-		}
-
+		currentf = currentf->next;
+		currents = currents->next;
 	}
 
-	*h = NULL;
-
-	return (i);
+	return (currents);
 }
